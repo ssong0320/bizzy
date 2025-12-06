@@ -7,7 +7,7 @@ import { ilike, or, and, ne } from "drizzle-orm";
 
 export async function GET(req: NextRequest) {
   try {
-    const session = await auth.api.getSession({ headers: req.headers });
+    const session = await auth.api.getSession(req);
 
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

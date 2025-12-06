@@ -11,7 +11,7 @@ export async function GET(
   { params }: { params: Promise<{ userId: string }> }
 ) {
   try {
-    const session = await auth.api.getSession({ headers: req.headers });
+    const session = await auth.api.getSession(req);
     const { userId } = await params;
 
     const userData = await db
